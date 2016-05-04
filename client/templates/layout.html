@@ -1,0 +1,38 @@
+<template name="layout">
+
+<head>
+  <title>BBD -- Shopping Better!</title>
+
+  <link href='https://fonts.googleapis.com/css?family=Almendra+Display|Almendra:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  
+</head>
+<body>
+	{{> nav}}
+	{{> yield}}
+	{{> footer}}
+</body>
+
+</template>
+
+
+
+
+
+
+
+<template name="nav">
+	<div class="topBannerSpacer"></div>
+	<nav id="topBanner">
+		<ul>
+			<li><a href="{{pathFor route='home'}}">Home</a></li>
+			<li><a href="{{pathFor 'allListings'}}">Listings</a></li>
+			<li><a href="{{pathFor 'profile'}}">Profile</a></li>
+			<li>	{{> loginButtons align="right"}}</li>
+		</ul>
+	</nav>
+</template>
+
+<template name="footer">
+	<h3>Own a business?</h3>
+	<h5>Want to show off your good deeds? <a target="_self" href="{{pathFor 'new'}}">Click here.</a></h5>
+</template>

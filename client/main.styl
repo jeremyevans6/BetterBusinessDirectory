@@ -1,0 +1,151 @@
+@import 'nib'
+@import 'axis'
+@import 'rupture'
+
+normalize-css()
+
+@font-face
+ font-family 'Almendra'
+ font-weight 400
+ font-style normal
+ font-stretch normal
+
+a
+	link()
+input
+ autofill(green, white)
+form .field.error
+ field-error()
+form .field.success
+  field-success()
+form .field.warning
+  field-warning()
+
++html5-inputs()
+  input()
+.disabled
+  input-disabled()
+label
+  label: block
+	 radio(red)
+input[type='range']
+  range: tomato 150px 25px 2px rgba(red, .5)
+
+
+h1
+  h1()
+  font-family 'Almendra Display'
+h2
+  h2()
+h3
+  h3()
+h4
+  h4()
+h5
+  h5()
+h6
+  h6()
+
+
+$text-selection = teal
+$font-size = 16
+$font-color = #555
+
+html
+	 gradient red violet
+	 transition()
+		height 100%
+		width 100%
+
+body
+	text-align center
+	font-size responsive
+ min-font-size: 12px
+ max-font-size 40px
+ lower-font-range 420px
+ upper-font-range 2280px
+ font-family Almendra
+	height 100%
+	width 100%
+ vertically-align()
+ transition()
+
+
+ul li
+	margin auto
+	text-align left
+	padding-left 5%
+
+.delete
+	glossy-button red 'small'
+	gradient red 70%
+	text-align right
+	click-shrink()
+	icon-x(20px, orange, 5px)
+
+.checked
+	color white
+	gradient pink
+
+/*Banner for Log-in, etc*/
+#topBanner
+	position fixed
+	gradient purple violet
+	width 100%
+	top 0
+	left 0
+	right 0
+	text-align right
+	height 3em
+
+	li a
+		color cyan
+		click-shadow()
+		padding .7m
+		border-radius 50%
+	
+	ul
+		display flex
+
+li
+	position relative
+	list-style-type none
+	hover-lighten()
+
+#login-buttons
+	right 0
+	position relative
+
+.topBannerSpacer
+	position relative
+	width 100%
+	top 0
+	left 0
+	right 0
+	height 3em
+
+.myListings
+	color white
+	gradient lavender 70%
+
+.listing
+	gradient white blue
+	height 8em
+	width 8em
+	position absolute
+
+.focus
+	gradient black white
+	height 12em
+	width 12em
+
+#allList
+	height 90%
+	bottom 0
+	left 0
+	right 0
+
+
+
+
+

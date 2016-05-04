@@ -1,0 +1,21 @@
+<template name="allListings">
+  <h1>Business makes life better.</h1>
+  <ul id="allList">
+  {{#each listings}}
+    {{> listing}}
+  {{/each}}
+  </ul>
+
+</template>
+
+
+<template name="listing">
+
+  <div class="listing">
+    <li class="{{#if checked}}checked{{/if}} {{#if isCurrentUser userId}}myListings{{/if}}">
+    <input type="checkbox" checked="{{checked}}" class="check-select">
+    <a class="bizName" href="/profile/{{bizName}}">{{bizName}}</a>
+    <button class="delete">Remove</button>
+    </li>
+  </div>
+</template>

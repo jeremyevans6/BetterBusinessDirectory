@@ -1,0 +1,17 @@
+<template name="createListing">
+
+{{#if currentUser}}
+	<form class="newListing" id="newListing">
+			<input type="text" name="bizName" placeholder="Your Business's Name">
+			<input type="text" name="firstName" placeholder="The business owner's first name">
+			<input type="text" name="lastName" placeholder="The business owner's last name">
+			<input type="text" name="email" placeholder="An email for customers to reach you">
+			<input type="text" name="phone" placeholder="Your business phone number">
+			<textarea name="industry" form="newListing" placeholder="Your Industry"></textarea>
+			<textarea name="socialMission" form="newListing" placeholder="Please describe your social mission here..."></textarea>
+      <input type="submit">
+	</form>
+{{else}}
+	{{> register}}
+{{/if}}
+</template>

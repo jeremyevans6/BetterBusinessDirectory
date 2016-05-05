@@ -22,3 +22,7 @@ accounts-password
 accounts-ui
 iron:router
 mrt:jquery-masonry
+isotope:isotope
+mquandalle:bower
+aldeed:collection2
+aldeed:autoform

@@ -1,21 +1,45 @@
 <template name="allListings">
+
   <h1>Business makes life better.</h1>
-  <ul id="allList">
-  {{#each listings}}
-    {{> listing}}
-  {{/each}}
-  </ul>
+  <div id="allList">
+
+    {{#each listings}}
+      {{> listing}}
+    {{/each}}
+
+  </div>
 
 </template>
 
 
 <template name="listing">
-
-  <div class="listing">
+    
+    <table class="listing
+    {{#if isCurrentUser userId}}myListings{{/if}}
+    ">
+      <tr>
+        <th>{{bizName}}</th>
+        <th><button class="delete">Remove</button></th>
+      </tr>
+      <tr>
+        <td>{{firstName}}</td>
+        <td>{{lastName}}</td>
+      </tr>
+      <tr>
+        <td>{{email}}</td>
+        <td>{{phone}}</td>
+      </tr>
+      <tr>
+        <td colspan="2">{{socialMission}}</td>
+      </tr>
+    </table>
+    
+    <!--
     <li class="{{#if checked}}checked{{/if}} {{#if isCurrentUser userId}}myListings{{/if}}">
     <input type="checkbox" checked="{{checked}}" class="check-select">
     <a class="bizName" href="/profile/{{bizName}}">{{bizName}}</a>
     <button class="delete">Remove</button>
     </li>
-  </div>
+    -->
+
 </template>

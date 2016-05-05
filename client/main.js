@@ -1,6 +1,6 @@
 import { Template } from 'meteor/templating';
 import { ReactiveVar } from 'meteor/reactive-var';
-//import './main.html';
+//import './layout.html';
 
 
 //helpers!
@@ -44,19 +44,17 @@ Template.listing.onCreated(function () {
 
 //rendered!
 Template.allListings.rendered = function (){
-	/*
 		if (!this.rendered){
-			this.rendered = true;
+			//this.rendered = true;
 			setTimeout(function(){
 				$('#allList').isotope({
 				  itemSelector: '.listing',
 				  masonry: {
-				    columnWidth: 200
+				    columnWidth: 300
 				  }
 				});
 			}, 2222);
 		};
-		*/
 	}
 
 
@@ -92,8 +90,21 @@ Template.createListing.events({
 Template.listing.events({
 
 	'click .listing': function(event){
-		$(event.target).toggleClass('focus');
-  	$grid.masonry('layout');
+		if($(event.target).hasClass('.listing')){
+			$(event.target).toggleClass('focus');
+		} else {
+			$(event.target).parents('.listing').toggleClass('focus');
+		}
+  	
+			setTimeout(function(){
+				$('#allList').isotope({
+				  itemSelector: '.listing',
+				  percentPosition: true,
+				  masonry: {
+				  }
+								});
+			}, 333);
+
 	},
 
 	'click .delete': function(){

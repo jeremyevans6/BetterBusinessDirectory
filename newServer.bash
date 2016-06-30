@@ -181,15 +181,57 @@ sudo crontab -e
 
 
 
-#time to set up our node apps
-#install npm and node through n
-curl -L http://git.io/n-install | bash
+sudo apt-get install mongodb
+sudo adduser meteor
+sudo touch /etc/sudoers.d/directory
+sudo echo "meteor ALL = (root) NOPASSWD: /sbin/start directory, /sbin/stop directory, /sbin/restart directory" > /etc/sudoers.d/directory
+sudo echo 'MONGO_URL="mongodb://localhost:27017"' >> /etc/environment
+sudo nano /etc/init/directory
+#Begin upstart script
 
+#!upstart
+description "Directory Upstart"
+author "jer"
 
+env APP_NAME='directory'
+env PORT='2016'
+env ROOT_URL='https://wedobusinessbetter.com'
+env NODE_BIN='/home/meteor/.nvm/v0.8.24/bin/node'
 
+env SCRIPT_FILE="bundle/main.js" # Entry point for the nodejs app
+env RUN_AS="meteor"
 
+start on (local-filesystems and net-device-up IFACE=eth0)
+stop on shutdown
 
+script
+export LOG_FILE="/home/meteor/$APP_NAME/log/upstart.log"
+touch $LOG_FILE
+chown $RUN_AS:$RUN_AS $LOG_FILE
+chdir /home/meteor/$APP_NAME/builds/current
+exec sudo -u $RUN_AS sh -c " PORT=$PORT ROOT_URL='$ROOT_URL' $NODE_BIN $SCRIPT_FILE >> $LOG_FILE$"
+end script
 
+respawn
+respawn limit 5 60
+
+###End script
+
+su meteor
+git clone https://github.com/creationix/nvm.git ~/.nvm
+sed -i -e '1i [[ -s $HOME/.nvm/nvm.sh ]] && . $HOME/.nvm/nvm.sh' ~/.bashrc
+source ~/.bashrc
+nvm install 6.2.2 && nvm alias default 6.2.2
+curl https://install.meteor.com | sh
+sed -i -e '1i PATH="$PATH:/home/meteor/.meteor"' ~/.bashrc
+source ~/.bashrc
+cd ~ && pwd
+mkdir directory && cd directory && pwd
+mkdir builds log source working && ls
+cd source
+git init
+git remote add origin https://github.com/jeremyevans6/BetterBusinessDirectory
+git pull origin master
 
 
 

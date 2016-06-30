@@ -1,0 +1,27 @@
+{
+  "options": {
+    "meteorite": false,
+    "insecure": false,
+    "meteorRelease": "only-required-for-non-meteorite-projects"
+  },
+  "environments": {
+    "staging": {
+      "hostname": "wedobusinessbetter.com",
+      "port": 21212,
+      "username": "meteor",
+      "password": "Qazsxdrewazx1",
+      "deploymentDirectory": "wedobusinessbetter.com",
+      "gitBranch": "master",
+      "taskName": "wedobusinessbetter.com"
+    },
+    "production": {
+      "hostname": "wedobusinessbetter.com",
+      "port": 21212,
+      "username": "meteor",
+      "privateKey": "path/to/privateKey",
+      "deploymentDirectory": "wedobusinessbetter.com",
+      "gitBranch": "master",
+      "taskName": "directory"
+    }
+  }
+}

@@ -1,13 +1,41 @@
 <template name="allListings">
+  <div class="header">
 
-  <h1>Business makes life better.</h1>
+    <h2>Supporting Better Business makes for a Better World.</h2>
+
+    <div class="btn-group filter-button-group">
+
+    <h3>What are you looking for?</h3>
+
+      <div class="industryFilter">
+        <button class="btn active" data-filter="*" selected>All</button>
+        <button class="btn" data-filter=".Art">Arts</button>
+        <button class="btn" data-filter=".Entrepreneur">Entrepreneurship</button>
+        <button class="btn" data-filter=".Finance">Finance</button>
+        <button class="btn" data-filter=".Hospitality">Hospitality</button>
+        <button class="btn" data-filter=".Health">Health</button>
+        <button class="btn" data-filter=".Communications">Communications</button>
+        <button class="btn" data-filter=".Outdoors">Outdoors</button>
+        <button class="btn" data-filter=".Reform">Reform</button>
+        <button class="btn" data-filter=".Transport">Transportation</button>
+      </div>
+
+    </div>
+
+  </div>
+
   <div id="allList">
+
+  {{#if Template.subscriptionsReady}}
 
     {{#each listings}}
       {{> listing}}
     {{/each}}
+    
+  {{/if}}
 
   </div>
+    {{> footer}}
 
 </template>
 
@@ -16,30 +44,51 @@
     
     <table class="listing
     {{#if isCurrentUser userId}}myListings{{/if}}
+    {{industryClass industry}}
     ">
+      <colgroup>
+        <col width="5%"><col width="5%">
+        <col width="5%"><col width="5%">
+        <col width="5%"><col width="5%">
+        <col width="5%"><col width="5%">
+        <col width="5%"><col width="5%">
+        <col width="5%"><col width="5%">
+        <col width="5%"><col width="5%">
+        <col width="5%"><col width="5%">
+        <col width="5%"><col width="5%">
+        <col width="5%"><col width="5%">
+      </colgroup>
       <tr>
-        <th>{{bizName}}</th>
-        <th><button class="delete">Remove</button></th>
+        <th colspan="12" class="bizName">{{#if focus}}<a class="" href="/profile/{{bizNameUrl}}">{{bizName}}</a>{{else}}
+        {{bizName}}{{/if}}</th>
+        <th colspan="8" class="contain-image logo" style="background-image: url('{{logo}}')"></th>
       </tr>
       <tr>
-        <td>{{firstName}}</td>
-        <td>{{lastName}}</td>
+        <td colspan="6" class="contain-image ownerPic" style="background-image: url('{{ownerPicture}}')"></td>
+        <td colspan="14"><h2>{{firstName}} {{lastName}}</h2></td>
       </tr>
+
       <tr>
-        <td>{{email}}</td>
-        <td>{{phone}}</td>
+        <td colspan="20" class="socialMission"><div>{{{socialMission}}} <a href="/profile/{{bizNameUrl}}" class="readmore">&#xbb;</a></div></td>
       </tr>
+      {{#if focus}}
       <tr>
-        <td colspan="2">{{socialMission}}</td>
+        <td colspan="20" class="website"><a target="_blank" href="{{website}}">{{websitePretty website}}</a></td>
       </tr>
+      {{/if}}
+        <tr colspan="20" class="map" style="display:
+      {{#if focus}}
+        inherit;
+      {{else}}
+        none;
+      {{/if}}
+        "></tr>    
+      {{#if focus}}
+      <tr>
+        <td colspan="12"><a target="_blank" href="mailto:{{email}}?Subject=Keep%20Up%20the%20Good%20Work%21">{{email}}</a></td>
+        <td colspan="8"><a href="tel:+1{{phone}}">{{phone}}</a></td>
+      </tr>
+      {{/if}}
     </table>
-    
-    <!--
-    <li class="{{#if checked}}checked{{/if}} {{#if isCurrentUser userId}}myListings{{/if}}">
-    <input type="checkbox" checked="{{checked}}" class="check-select">
-    <a class="bizName" href="/profile/{{bizName}}">{{bizName}}</a>
-    <button class="delete">Remove</button>
-    </li>
-    -->
 
 </template>

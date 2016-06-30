@@ -5,13 +5,18 @@
 normalize-css()
 
 @font-face
- font-family 'Almendra'
+ font-family 'Josefin Slab'
  font-weight 400
  font-style normal
  font-stretch normal
 
+rupture.scale = 0 485px 800px 1200px
+rupture.anti-overlap = 1px
+rupture.enable-em-breakpoints = true
+
 a
 	link()
+	
 input
  autofill(green, white)
 form .field.error
@@ -30,11 +35,13 @@ label
 	 radio(red)
 input[type='range']
   range: tomato 150px 25px 2px rgba(red, .5)
-
+  
+option
+	color #000
 
 h1
   h1()
-  font-family 'Almendra Display'
+  font-family 'Fredoka One'
 h2
   h2()
 h3
@@ -52,10 +59,17 @@ $font-size = 16
 $font-color = #555
 
 html
-	 gradient red violet
-	 transition()
-		height 100%
-		width 100%
+	background rgb(30,0,30)
+	gradient rgb(30,0,30) rgb(90,10,90)
+ background-image url('/img/newrings_cassini_big.jpg')
+ background-size cover
+ background-position center center
+ background-repeat repeat
+ transition()
+	height 100%
+	width 100%
+	color #fff
+	
 
 body
 	text-align center
@@ -64,7 +78,7 @@ body
  max-font-size 40px
  lower-font-range 420px
  upper-font-range 2280px
- font-family Almendra
+ font-family Josefin Slab
 	height 100%
 	width 100%
  vertically-align()
@@ -83,29 +97,46 @@ ul li
 	click-shrink()
 	icon-x(20px, orange, 5px)
 
-.checked
-	color white
-	gradient pink
+#footer
+	bottom 0
+	left 0
+	right 0
+	flex-direction 
+	background rgb(10,0,10)	
+	background rgba(10,0,10,0.8)
+	max-height 2%
+	h3
+		line-height normal
+		margin 0.1em
+
+	
 
 /*Banner for Log-in, etc*/
 #topBanner
 	position fixed
-	gradient purple violet
+	background rgb(10,0,10)	
+	background rgba(10,0,10,0.8)	
 	width 100%
 	top 0
 	left 0
 	right 0
 	text-align right
-	height 3em
-
+	height 5%
+	font-size .55em
+	font-family "Fredoka One", sans-serif
 	li a
-		color cyan
+		color #049EDB	
 		click-shadow()
 		padding .7m
 		border-radius 50%
-	
 	ul
 		display flex
+	#b3logo
+		background-image url('http://betterbetterbetter.org/wp-content/uploads/2015/12/common.png')
+  width 3em
+  height 3em
+  position fixed
+  z-index 9999
 
 li
 	position relative
@@ -122,46 +153,544 @@ li
 	top 0
 	left 0
 	right 0
-	height 3em
+	height 5%
 
-.myListings
-	color white
-	gradient lavender 70%
+.fullWidth
+	width 80%
+	margin auto
 
 .listing
-	border
-	margin 5px
-	transition()
-	gradient white blue
-	
+ font-family "Josefin Slab", sans-serif
+	box-shadow #F0F8FF 1px 1px 3px, #F0F8FF -1px -1px 3px, #F0F8FF 1px -1px 3px, #F0F8FF -1px 1px 3px		
+	font-size 1.25em
+	margin 3px
+	background rgb(58, 4, 54)
+	background rgba(58, 4, 54, 0.95)
 	border-radius: 15px
- font-size .3em
+ font-size .75em
  flex-grow 0
  flex-shrink 0
  flex-basis 0
-	table
-		table($condensed: true)
+ transition 333ms height ease,
+ 	555ms background ease
+	display inline-table
+	table-layout fixed
+	height 300px
+	width 485px
+	tr
+		width 455px
+		&:first-child
+			height 150px
+		td,th
+			width 227px
+			&:first-child
+				padding-left 15px
+			&:last-child
+				padding-right 15px
+ &:hover
+		hover-darken()
+	+at(3)
+		font-size 1.25em		
+	+below(2)
+		font-size 1.25em
+		width 99%
+		tr
+		 width 99%
+			td,th
+				width 49.5%
+ .bizName
+ 	font-size 2em
+ .socialMission
+ 	max-height 3em
+ 	font-size .85em
+ 	margin 0px
+  div
+ 	 display inline-block
+ 	 max-height 3em
+ 	 *
+ 	 	display inline
+ 	 	max-height 3em	
+ .map
+  height 9em
+  width 485px
+  text-align center
+  margin-left auto
+  margin-right auto
+  box-shadow #F0F8FF 1px 1px 3px, #F0F8FF -1px -1px 3px, #F0F8FF 1px -1px 3px, #F0F8FF -1px 1px 3px		
+  .gmnoprint
+  	display none
+  .gm-style-cc
+  	display none
+ .website
+ 	text-align center
+ .logo
+ 	width 3.5em
+	 height 3.5em
+	.ownerPic
+	 text-align left
+	.map-container
+		height 300px
+	.bizName
+		font-family "Fredoka One", sans-serif
+		color #00049A
+
 
 
 .focus
-	gradient black white
-	width 40%
-	height 40%
-		
+	background rgb(132, 9, 132)
+	background rgba(132, 9, 132, 0.98)
+	height 606px
+	a
+		color #049EDB	
+	&:hover
+		hover-lighten()		
+
+.map-canvas
+	box-shadow #F0F8FF 1px 1px 3px, #F0F8FF -1px -1px 3px, #F0F8FF 1px -1px 3px, #F0F8FF -1px 1px 3px		
 
 #allList
-	width 100%
+	width auto
 	bottom 0
 	left 0
 	right 0
 	display flex
  flex-direction row
  flex-wrap wrap
- justify-content center
- align-content stretch
- align-items stretch
+ justify-content space-between
+ align-content flex-start
+ align-items flex-start
+ +below(2)
+ 	width 100%
+ 	margin 0
+
+
+::-webkit-scrollbar
+ display none 
+
+.header
+	background rgb(10,0,10)
+	background rgba(10,0,10,.33)
+
+.filter-button-group
+	padding-left 5%
+	padding-right 5%
+	padding-bottom 1.5%
+	label, [type="checkbox"]
+		display inline-block
+	[type="checkbox"]
+		height .75em
+		width .75em
+
+.btn
+	font-weight 700
+ border 2px outset
+ margin-top .25em
+ background transparent
+ transition 666ms all
+ padding-left 3%
+ padding-right 3%
+ padding-top .25%
+ padding-bottom .25%
+	&:hover
+		border 2px inset
+		background rgb(55,55,55)
+		background rgba(55,55,55,.2)
+	+below(2)
+		font-size 1em
+	+above(2)
+		font-size .75em
+
+#mapBG
+	.cluster
+	 &:hover
+  	transform scale(1.25_)
+		.markerCounterWrapper
+	  color #F0FFFF!important
+	  font-size 1.5em!important
+	  font-weight normal!important
+	  font-family "Fredoka One","Josefin Slab", sans-serif!important
+	  border-radius 50%
+
+.gm-style-iw
+	transition()
+ top 0 !important
+ left 0 !important
+ border-radius 3em
+	.socialMission
+		font-size 2em
+		max-height 3em
+		display table-cell
+		div
+			max-height 3em
+			display block
+			*
+				display inline
+	.bizName
+		color #2E0057
+  text-shadow #FFF 0 0 0, #FFF 1px 0 0, #FFF 0 1px 0, #FFF 1px 1px 0, #FFF -1px 0 0, #FFF 0 -1px 0, #FFF -1px 1px 0
+		font-size 1.5em
+		&:hover
+			color #FE0868
+	.logo
+ 	width 2em
+	 height 2em
+	tr:first-child
+		height 12em
+	tr:nth-child(2)
+		height 8em
+		
+
+.btn.active
+	border 2px inset
+	background rgb(55,55,55)
+	background rgba(55,0,55,.4)
+	
+.sheerBg
+	background rgb(10,0,10)	
+	background rgba(10,0,10,0.8)	
+	
+fieldset
+	background rgb(10,0,10)	
+	background rgba(10,0,10,0.75)
+	margin-top 1em
+	margin-bottom 1em
+	box-shadow #F0F8FF 1px 1px 3px, #F0F8FF -1px -1px 3px, #F0F8FF 1px -1px 3px, #F0F8FF -1px 1px 3px		
+	input
+		width 75%
+	select
+		color #000	
+ span
+ 	font-size .5em
+ legend
+ 	padding-bottom .75em
+  margin-bottom 1em
+	.bizName
+		font-size 2em
+		text-align center
+		background transparent
+		border-bottom #fff 3px dashed
+		border-top none
+		border-left none
+		border-right none
+		
+	
+.fr-modal
+	display none
+
+.help-block 
+ color #f00
+ display block
+
+.grid
+	lost-utility clearfix
+	width 100%
+	.col
+		lost-column 1/2
+		+below(2)
+			lost-column 1	
+
+[type="submit"]
+	glossy-button cyan 'medium'
+	background rgb(69, 201, 223)
+ background rgba(69, 201, 223, 0.81)
+ text-shadow #D2771E 0 1px 0, #D22D1E -1px 0 0, #D22D1E 0 -1px 0, #D2771E 1px 0 0
+	font-size 2em
+	&:hover
+		background rgb(69, 201, 223)
+ 	background rgba(69, 201, 223, 0.81)
+ 	color #fdf
+
+#login-dropdown-list
+	background rgb(58, 4, 54)
+	background rgba(58, 4, 54, 0.95)
+ color #fdf
+
+.uploadPanel [type="submit"]
+	font-size 1em
+	glossy-button #897987 'small'
+input[name="website"], input[name="bizName"]
+ width 66%
+ margin-bottom 2em
+
+
+.contain-image
+	background-repeat no-repeat
+	background-position center center
+	background-size contain
+
+
+#mapBG
+ width 100%
+ height 93%
+ 
+
+.tooltip 
+ z-index 1001
+ pointer-events none
+ transition opacity .1s ease-out
+ opacity 0
+
+.tooltip.hide 
+ opacity 0
+
+.tooltip.show 
+ opacity 1
+ 
+.o0
+	opacity 0
+	&*
+		opacity 0
+		
+::-moz-selection  
+	background yellow
+	color #111 
+
+::selection 
+	background yellow 
+	color #111
+
+
+.profile
+	.headerLogo
+		max-width 66%
+	legend
+		max-width 50%
+	.logo, .ownerPic
+		max-width 50%
+		box-shadow #F0F8FF 1px 1px 3px, #F0F8FF -1px -1px 3px, #F0F8FF 1px -1px 3px, #F0F8FF -1px 1px 3px		
+	.bizName
+		margin 0
+		font-size 3em
+		text-shadow #111 0 0 0, #111 1px 0 0, #111 0 1px 0, #111 1px 1px 0, #111 -1px 0 0, #111 0 -1px 0, #111 -1px 1px 0
+	.map-canvas
+		height 10em!important
+		
+.social-icon
+	border none
+	&:hover
+		border none
+	img
+		max-width 300px
+		background #E9F4E9
+	 background rgba(233, 244, 233, 0.68)
+	 border-radius 50%
+	 height 3em
+	 &:hover
+	 	border none
+	 	animation rainbow-bg-cycle 5s infinite
+ 	
+ 	
+@keyframes rainbow-bg-cycle
+  0%
+				background rgb(233, 244, 233)
+			 background rgba(233, 244, 233, 0.68)
+  14%
+				background rgb(11, 110, 172)
+			 background rgba(11, 110, 172, 0.88)
+  28%
+				background rgb(21, 172, 18)
+			 background rgba(21, 172, 18, 0.88)
+  42%
+				background rgb(198, 22, 22)
+			 background rgba(198, 22, 22, 0.88)
+  56%
+				background rgb(121, 14, 14)
+			 background rgba(121, 14, 14, 0.88)
+  70%
+				background rgb(252, 85, 16)
+			 background rgba(252, 85, 16, 0.88)
+  84%
+				background rgb(250, 247, 53)
+			 background rgba(250, 247, 53, 0.88)
+  98%
+				background rgb(226, 14, 120)
+			 background rgba(226, 14, 120, 0.88)
+  100% 
+				background rgb(226, 14, 120)
+			 background rgba(226, 14, 120, 0.88)
+  
+
+.oldPreview
+	max-width 8em
+	max-height 8em
+	
+.none
+	display none
+	
+#delete
+	glossy-button red 'large'
+	font-size 2.5em
+	font-family 'Fredoka One', impact
+	position relative
+	bottom 0
+	right 0
+	
+.bottomButtonRemove,.bottomButtonSubmit
+	width 100%
+	position relative	
+.bottomButtonRemove
+	text-align right
+.bottomButtonSubmit
+	text-align center
+	
 
 
 
 
+div.loaderScreen
+ border-radius 50%
+ position absolute
+ top 50%
+ left 75%
+ height 3em
+ width 3em
+ margin-top -2.25em
+ margin-left -2.25em
+ for divvy in 1..13
+  &:nth-of-type({divvy})
+		 &:nth-of-type(odd)
+		   background black
+		   box-shadow #030003 1px 1px 3px, #030003 -1px -1px 3px, #030003 1px -1px 3px, #030003 -1px 1px 3px		
+		   animation slideOdd 12s .5s*divvy ease-in-out infinite
+		 &:nth-of-type(even)
+		   background white
+		   box-shadow #F0F8FF 1px 1px 3px, #F0F8FF -1px -1px 3px, #F0F8FF 1px -1px 3px, #F0F8FF -1px 1px 3px
+		   animation slideEven 12s .5s*divvy ease-in-out infinite		
 
+
+			
+
+@keyframes slideOdd
+ 0%  
+ 	transform scale(1)
+	 left 75%
+	 top 50%
+	 background black
+  box-shadow #030003 1px 1px 3px, #030003 -1px -1px 3px, #030003 1px -1px 3px, #030003 -1px 1px 3px		
+	12.5%
+		transform scale(1.5)
+	 top 66%
+	25%
+		transform scale(1)
+	 left 25%
+	 top 50%
+	 background black
+  box-shadow #030003 1px 1px 3px, #030003 -1px -1px 3px, #030003 1px -1px 3px, #030003 -1px 1px 3px	
+	37.5%
+		transform scale(.5)
+	 top 33%
+	 background white
+  box-shadow #F0F8FF 1px 1px 3px, #F0F8FF -1px -1px 3px, #F0F8FF 1px -1px 3px, #F0F8FF -1px 1px 3px		
+	50%
+		transform scale(1)
+	 left 75%
+	 top 50%
+	67.5%
+		transform scale(1.5)
+	 top 66%
+	75%
+		transform scale(1)
+	 left 25%
+	 top 50%
+	87.5%
+		transform scale(.5)
+	 top 33%
+	 background white
+  box-shadow #F0F8FF 1px 1px 3px, #F0F8FF -1px -1px 3px, #F0F8FF 1px -1px 3px, #F0F8FF -1px 1px 3px		
+	100%
+		transform scale(1)
+	 left 75%
+	 top 50%		
+	 background black
+  box-shadow #030003 1px 1px 3px, #030003 -1px -1px 3px, #030003 1px -1px 3px, #030003 -1px 1px 3px		
+
+@keyframes slideEven
+ 0%  
+ 	transform scale(1)
+	 left 75%
+	 top 50%
+	 background white
+  box-shadow #F0F8FF 1px 1px 3px, #F0F8FF -1px -1px 3px, #F0F8FF 1px -1px 3px, #F0F8FF -1px 1px 3px		
+	12.5%
+		transform scale(1.5)
+	 top 66%
+	25%
+		transform scale(1)
+	 left 25%
+	 top 50%
+	 background white
+  box-shadow #F0F8FF 1px 1px 3px, #F0F8FF -1px -1px 3px, #F0F8FF 1px -1px 3px, #F0F8FF -1px 1px 3px	
+	37.5%
+		transform scale(.5)
+	 top 33%
+	 background black
+  box-shadow #030003 1px 1px 3px, #030003 -1px -1px 3px, #030003 1px -1px 3px, #030003 -1px 1px 3px		
+	50%
+		transform scale(1)
+	 left 75%
+	 top 50%
+	67.5%
+		transform scale(1.5)
+	 top 66%
+	75%
+		transform scale(1)
+	 left 25%
+	 top 50%
+	87.5%
+		transform scale(.5)
+	 top 33%
+	 background black
+  box-shadow #030003 1px 1px 3px, #030003 -1px -1px 3px, #030003 1px -1px 3px, #030003 -1px 1px 3px		
+	100%
+		transform scale(1)
+	 left 75%
+	 top 50%		
+	 background white
+  box-shadow #F0F8FF 1px 1px 3px, #F0F8FF -1px -1px 3px, #F0F8FF 1px -1px 3px, #030003 -1px 1px 3px		
+  
+
+.g-recaptcha
+ width 306px
+ margin auto
+ 
+#login-dropdown-list
+ left 0px
+ right 0px
+ bottom 0px
+ top 0px
+ position fixed
+ padding-top 10em
+ width 100%
+ div
+		width 50%
+		margin auto
+ .login-close-text
+ 	position fixed
+ 	top 0
+ 	right 0
+ 	font-size 4em
+		color #f00000
+	.login-button.login-button-form-submit
+		margin-top 2em
+		
+#saturnInfo
+	text-align center
+	width 80%
+	margin-left 10%
+	table-layout fixed
+	.left
+		text-align left
+	.right
+		text-align right
+	#kronos
+		background-image url('http://betterbetterbetter.org/wp-content/uploads/2016/06/kronos.gif')
+		height 9em
+		width 6em
+	#saturn-god	
+		width 6em
+		height 9em
+	 background-image url('http://betterbetterbetter.org/wp-content/uploads/2016/06/saturn-god.jpg')
+	#saturnCoin
+		height 8em
+		width 8em
+		background-image url('http://betterbetterbetter.org/wp-content/uploads/2016/06/SaturnAustrianCoin.png')

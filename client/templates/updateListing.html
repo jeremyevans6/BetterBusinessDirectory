@@ -1,0 +1,65 @@
+<template name="updateListing">
+
+{{#if currentUser}}
+
+{{# autoForm collection="Listings" id="updateListing" type="update"}}
+
+<fieldset>
+<legend>Edit Your Listing</legend>
+{{> afQuickField name='bizName'  class="bizName" value=bizName }}
+<div class="grid">
+    <div class="col"><fieldset  class="colField"><legend>Owner Information</legend>
+      {{> afQuickField name='firstName' class="grid-item" value=firstName}}
+      {{> afQuickField name='lastName' class="grid-item" value=lastName}}
+      <span>Old Headshot: <img class="oldPreviewHead img-fileUpload-thumbnail img-thumbnail img-rounded" src="{{ownerPicture}}"/></span>{{> afQuickField name='ownerPicture' remove-label="Remove" class="grid-item" value=ownerPicture}}
+      {{> afQuickField name='facebookPersonal'  class="grid-item" value=facebookPersonal}}
+      {{> afQuickField name='twitterPersonal'  class="grid-item" value=twitterPersonal}}
+      {{> afQuickField name='linkedInPersonal'  class="grid-item" value=linkedInPersonal }}
+      {{> afQuickField name='instagramPersonal'  class="grid-item" value=instagramPersonal }}
+      {{> afQuickField name='pinterestPersonal'  class="grid-item" value=pinterestPersonal }}
+    </fieldset></div>
+    <div class="col"><fieldset class="colField"><legend>Business Contacts</legend>
+      {{> afQuickField name='email' class="grid-item" value=email}}
+      {{> afQuickField name='phone' class="grid-item" value=phone}}
+      <span>Old Logo: <img class="oldPreviewLogo img-fileUpload-thumbnail img-thumbnail img-rounded" src="{{logo}}"/></span>{{> afQuickField name='logo' remove-label="Remove" class="grid-item" value=logo  }}
+      {{> afQuickField name='facebookBusiness'  class="grid-item" value=facebookBusiness }}
+      {{> afQuickField name='twitterBusiness'  class="grid-item" value=twitterBusiness }}
+      {{> afQuickField name='linkedInBusiness'  class="grid-item" value=linkedInBusiness }}
+      {{> afQuickField name='instagramBusiness'  class="grid-item" value=instagramBusiness }}
+      {{> afQuickField name='pinterestBusiness'  class="grid-item" value=pinterestBusiness }}
+    </fieldset></div>
+</div>
+  <fieldset class="fullWidth"><legend>Your Company's Details</legend>
+    {{> afQuickField name='website' class="grid-item" value=website }}
+    <h3>If you would like to find your prior location, simply select the search bar in the map and hit "Enter'. If you would like leave the location unchanged, simply avoid clicking the map.</h3>
+    {{> afQuickField name="location" class="grid-item"}}
+    {{> afQuickField name='industry' class="grid-item"   style="font-size: .8em"}}
+    <br>
+    <fieldset class="fullWidth"><legend>Your Social Mission</legend>
+    <h4>Word your mission carefully. Only the first 30 words or so will display on the first page, yet the entire reponse is visible on your profile. This means that if you use an image, video, or other media it should be safely below a horizontal divider or lots of text. Only links and paragraph tags are permitted in the preview (if you don't know what that is, simply type out the first section without formatting).</h4> <h4>It would be helpful link to evidence of your achievements as well to take this opportunity to <a target="_blank" href="https://en.wikipedia.org/wiki/Deep_linking">"deep link"</a>.</h4>
+    <h4>Describing how your normal operations benefit others is more persuasive than donations or charity.</h4>
+    <h4>This is your chance to introduce yourself to your customer. Put your best copy forward!</h4>
+    {{> afQuickField name='socialMission' class="grid-item socialMission" }}
+          <br>
+    </fieldset>
+  </fieldset>
+
+
+</fieldset>
+<div class="bottomButtonSubmit">
+  <button type="submit" class="btn btn-primary">Update</button>
+</div>
+{{/autoForm}}
+<div class="bottomButtonRemove">
+  <button id="delete">X</button>
+</div>
+
+<div class="none location" data="notclicked">{{location}}</div>
+<div class="none _id" data="notclicked">{{_id}}</div>
+
+
+{{else}}
+{{> register}}
+{{/if}}
+
+</template>

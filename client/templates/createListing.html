@@ -1,17 +1,60 @@
 <template name="createListing">
 
 {{#if currentUser}}
-	<form class="newListing" id="newListing">
-			<input type="text" name="bizName" placeholder="Your Business's Name">
-			<input type="text" name="firstName" placeholder="The business owner's first name">
-			<input type="text" name="lastName" placeholder="The business owner's last name">
-			<input type="text" name="email" placeholder="An email for customers to reach you">
-			<input type="text" name="phone" placeholder="Your business phone number">
-			<textarea name="industry" form="newListing" placeholder="Your Industry"></textarea>
-			<textarea name="socialMission" form="newListing" placeholder="Please describe your social mission here..."></textarea>
-      <input type="submit">
-	</form>
+
+  {{# autoForm collection="Listings" id="newListing" type="insert"}}
+
+    <fieldset>
+      <legend>Add your Buisiness to the Directory!</legend>
+      {{> afQuickField name='bizName'  class="grid-item bizName"}}
+      <div class="grid">
+          <div class="col"><fieldset ><legend>Owner Information</legend>
+            {{> afQuickField name='firstName' class="grid-item"}}
+            {{> afQuickField name='lastName' class="grid-item"}}
+            {{> afQuickField name='ownerPicture' remove-label="Remove" class="grid-item" }}
+            {{> afQuickField name='facebookPersonal'  class="grid-item"}}
+            {{> afQuickField name='twitterPersonal'  class="grid-item"}}
+            {{> afQuickField name='linkedInPersonal'  class="grid-item"}}
+            {{> afQuickField name='instagramPersonal'  class="grid-item"}}
+            {{> afQuickField name='pinterestPersonal'  class="grid-item"}}
+          </fieldset></div>
+          <div class="col"><fieldset><legend>Business Contacts</legend>
+            {{> afQuickField name='email' class="grid-item"}}
+            {{> afQuickField name='phone' class="grid-item"}}
+            {{> afQuickField name='logo' remove-label="Remove" class="grid-item" }}
+            {{> afQuickField name='facebookBusiness'  class="grid-item"}}
+            {{> afQuickField name='twitterBusiness'  class="grid-item"}}
+            {{> afQuickField name='linkedInBusiness'  class="grid-item"}}
+            {{> afQuickField name='instagramBusiness'  class="grid-item"}}
+            {{> afQuickField name='pinterestBusiness'  class="grid-item"}}
+          </fieldset></div>
+      </div>
+        <fieldset class="fullWidth"><legend>Your Company's Details</legend>
+          {{> afQuickField name='website' class="grid-item"}}
+          {{> afQuickField name="location" class="grid-item"}}
+          {{> afQuickField name='industry' class="grid-item" style="font-size: .8em"}}
+          <br>
+          <fieldset class="fullWidth"><legend>Your Social Mission</legend>
+          <h4>Word your mission carefully. Only the first 30 words or so will display on the first page, yet the entire reponse is visible on your profile. This means that if you use an image, video, or other media it should be safely below a horizontal divider or lots of text. Only links and paragraph tags are permitted in the preview (if you don't know what that is, simply type out the first section without formatting).</h4> <h4>It would be helpful link to evidence of your achievements as well as an opportunity to <a target="_blank" href="https://en.wikipedia.org/wiki/Deep_linking">"deep link"</a>.</h4>
+          <h4>Describing how your normal operations benefit others is more persuasive than donations or charity.</h4>
+          <h4>This is your chance to introduce yourself to your customer. Put your best copy forward!</h4>
+          {{> afQuickField name='socialMission' class="grid-item socialMission"}}
+                <br>
+          </fieldset>
+        </fieldset>
+
+	  </fieldset>
+    {{> reCAPTCHA}}
+  <button type="submit" class="btn btn-primary">Get Listed!</button>
+  {{/autoForm}}
+
+
 {{else}}
 	{{> register}}
 {{/if}}
+</template>
+
+
+<template name="imagePreview">
+  <a href="{{file.url}}">{{file.original.name}}</a>
 </template>

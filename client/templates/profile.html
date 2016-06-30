@@ -1,14 +1,41 @@
 <template name="profile">
 
-    <h1 style="color: red">{{bizName}}</h1>
-	<h4>{{bizName}}</h4>
-	<h4>{{firstName}}</h4>
-	<h4>{{lastName}}</h4>
-	<h4>{{email}}</h4>
-	<h4>{{phone}}</h4>
-	<h4>{{industry}}</h4>
-	<h4>{{socialMission}}</h4>
+    <fieldset class="profile">
+      <legend><img class="headerLogo" src="{{logo}}" /></legend>
+    	<h1 class="bizName">{{bizName}}</h1>
+    	      				<br>
+      <fieldset class="fullWidth">
+          			{{{socialMission}}}
+        <h1><a target="_blank" href="{{website}}">{{websitePretty website}}</a></h1>
+								{{> googleMap name="profileMap" options=profilePageMapOptions}}          
+      </fieldset>
 
 
-	<h6>Is this your business?</h6>
+       <div class="grid">
+          <div class="col"><fieldset class="colField"><legend>Owner Information</legend>
+           <h1 class="grid-item">{{firstName}} {{lastName}}</h1>
+           <p><img class="grid-item ownerPic" src="{{ownerPicture}}" /></p>
+           {{#if facebookPersonal}}<a href="{{facebookPersonal}}" target="_blank" class="social-icon"><img src="http://betterbetterbetter.org/wp-content/uploads/2016/06/fb.svg" onerror="this.onerror=null; this.src='http://betterbetterbetter.org/wp-content/uploads/2016/06/fb.png'"/></a>{{/if}}
+           {{#if twitterPersonal}}<a href="{{twitterPersonal}}" target="_blank" class="social-icon"><img src="http://betterbetterbetter.org/wp-content/uploads/2016/06/twitter.svg" onerror="this.onerror=null; this.src='http://betterbetterbetter.org/wp-content/uploads/2016/06/twitter.png'"/></a>{{/if}}
+           {{#if linkedInPersonal}}<a href="{{linkedInPersonal}}" target="_blank" class="social-icon"><img src="http://betterbetterbetter.org/wp-content/uploads/2016/06/google.svg" onerror="this.onerror=null; this.src='http://betterbetterbetter.org/wp-content/uploads/2016/06/google.png'"/></a>{{/if}}
+           {{#if instagramPersonal}}<a href="{{instagramPersonal}}" target="_blank" class="social-icon"><img src="http://betterbetterbetter.org/wp-content/uploads/2016/06/instagram.svg" onerror="this.onerror=null; this.src='http://betterbetterbetter.org/wp-content/uploads/2016/06/instagram.png'"/></a>{{/if}}
+           {{#if pinterestPersonal}}<a href="{{pinterestPersonal}}" target="_blank" class="social-icon"><img src="http://betterbetterbetter.org/wp-content/uploads/2016/06/pinterest.svg" onerror="this.onerror=null; this.src='http://betterbetterbetter.org/wp-content/uploads/2016/06/pinterest.png'"/></a>{{/if}}
+          </fieldset></div>
+          <div class="col"><fieldset class="colField"><legend>Business Contacts</legend>
+						
+            <p><img class="grid-item logo" src="{{logo}}" /></p>
+												{{#if facebookBusiness}}<a href="{{facebookBusiness}}" target="_blank" class="social-icon"><img src="http://betterbetterbetter.org/wp-content/uploads/2016/06/fb.svg" onerror="this.onerror=null; this.src='http://betterbetterbetter.org/wp-content/uploads/2016/06/fb.png'"/></a>{{/if}}
+            {{#if twitterBusiness}}<a href="{{twitterBusiness}}" target="_blank" class="social-icon"><img src="http://betterbetterbetter.org/wp-content/uploads/2016/06/twitter.svg" onerror="this.onerror=null; this.src='http://betterbetterbetter.org/wp-content/uploads/2016/06/twitter.png'"/></a>{{/if}}
+            {{#if linkedInBusiness}}<a href="{{linkedInBusiness}}" target="_blank" class="social-icon"><img src="http://betterbetterbetter.org/wp-content/uploads/2016/06/google.svg" onerror="this.onerror=null; this.src='http://betterbetterbetter.org/wp-content/uploads/2016/06/google.png'"/></a>{{/if}}
+            {{#if instagramBusiness}}<a href="{{instagramBusiness}}" target="_blank" class="social-icon"><img src="http://betterbetterbetter.org/wp-content/uploads/2016/06/instagram.svg" onerror="this.onerror=null; this.src='http://betterbetterbetter.org/wp-content/uploads/2016/06/instagram.png'"/></a>{{/if}}
+            {{#if pinterestBusiness}}<a href="{{pinterestBusiness}}" target="_blank" class="social-icon"><img src="http://betterbetterbetter.org/wp-content/uploads/2016/06/pinterest.svg" onerror="this.onerror=null; this.src='http://betterbetterbetter.org/wp-content/uploads/2016/06/pinterest.png'"/></a>{{/if}}
+            {{#if email}}<a href="mailto:{{email}}?Subject=Keep%20Up%20the%20Good%20Work%21" target="_blank" class="social-icon"><img src="http://betterbetterbetter.org/wp-content/uploads/2016/06/email.svg" onerror="this.onerror=null; this.src='http://betterbetterbetter.org/wp-content/uploads/2016/06/email.png'"/></a>{{/if}}
+            {{#if phone}}<a href="/tel+1{{phone}}" target="_blank" class="social-icon"><img src="http://betterbetterbetter.org/wp-content/uploads/2016/06/phone.svg" onerror="this.onerror=null; this.src='http://betterbetterbetter.org/wp-content/uploads/2016/06/phone.png'"/></a>{{/if}}
+          </fieldset></div>
+      </div>
+	  </fieldset>
+
+	{{#if isCurrentUser userId}}<h1><a target="_self" href="{{pathFor 'updateListing'}}">Edit Your Lising</a></h1>{{else}}
+		{{> footer}}
+		{{/if}}
 </template>

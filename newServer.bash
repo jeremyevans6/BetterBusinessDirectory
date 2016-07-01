@@ -233,6 +233,18 @@ git init
 git remote add origin https://github.com/jeremyevans6/BetterBusinessDirectory
 git pull origin master
 
+## For MDM, we need to switch git to ssh
+## Use this guide: https://confluence.atlassian.com/bitbucket/set-up-ssh-for-git-728138079.html
+
+#On local/development machine
+cd ~/directory
+npm install -g meteor-deployment-manager
+mdm generate
+#edit deploy.json
+#Must add path to private ssh key
+#Metero version of project is found via: meteor --version
+
+
 
 
 

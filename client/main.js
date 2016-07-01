@@ -170,6 +170,8 @@ Template.createListing.events({
         event.stopPropagation();
    return false;
 
+    window.location.href = '../'+bizNameUrl;
+
    setTimeout(function(bizNameUrl){
     window.location.href = '../'+bizNameUrl;
    }, 777);
@@ -365,7 +367,17 @@ if (window.location.href.indexOf("/profile") > -1){
     el.style.height = maxHeight + "px";
   });
 	
+  if (window.location.href.indexOf("/new") > -1){
+    $('[href="https://froala.com/wysiwyg-editor"]').parent().remove()
+  }
  }
+
+if (window.location.href.indexOf("/new") > -1){ 
+ $('[href="https://froala.com/wysiwyg-editor"]').parent().remove()
+  }
+
+
+
 });
 
 

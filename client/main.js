@@ -261,7 +261,7 @@ Template.updateListing.events({
 
  'click #delete': function(){
   if(confirm("Delete Listing? There is no way to restore it.")){
-   Meteor.call("delete", this._id);
+   Meteor.call("deleter", this._id);
    window.location.href = '/';
   }
  }

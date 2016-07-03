@@ -34,6 +34,10 @@ Router.route('/saturn', {
     name: 'saturn',
     template: 'saturn'
 });
+Router.route('/privacy', {
+    name: 'privacy',
+    template: 'privacy'
+});
 Router.route('/listings', {
     name: 'allListings',
     template: 'allListings',

@@ -366,13 +366,16 @@ if (window.location.href.indexOf("/profile") > -1){
   Array.prototype.forEach.call(elements, function(el) {
     el.style.height = maxHeight + "px";
   });
+
+  $('[href="https://froala.com/wysiwyg-editor"]').parent().remove()
+
 	
-  if (window.location.href.indexOf("/new") > -1){
+  if (window.location.href.indexOf("edit") > -1){
     $('[href="https://froala.com/wysiwyg-editor"]').parent().remove()
   }
  }
 
-if (window.location.href.indexOf("/new") > -1){ 
+if (window.location.href.indexOf("new") > -1){ 
  $('[href="https://froala.com/wysiwyg-editor"]').parent().remove()
   }
 

@@ -5,7 +5,7 @@
 normalize-css()
 
 @font-face
- font-family 'Josefin Slab'
+ font-family 'Open Sans'
  font-weight 400
  font-style normal
  font-stretch normal
@@ -53,6 +53,8 @@ h5
 h6
   h6()
 
+h1,h2,h3,h4,h5,h6,p,li,td
+	font-weight 300
 
 $text-selection = teal
 $font-size = 16
@@ -78,7 +80,7 @@ body
  max-font-size 40px
  lower-font-range 420px
  upper-font-range 2280px
- font-family Josefin Slab
+ font-family Open Sans
 	height 100%
 	width 100%
  vertically-align()
@@ -161,7 +163,7 @@ li
 	margin auto
 
 .listing
- font-family "Josefin Slab", sans-serif
+ font-family "Open Sans", sans-serif
 	box-shadow #F0F8FF 1px 1px 3px, #F0F8FF -1px -1px 3px, #F0F8FF 1px -1px 3px, #F0F8FF -1px 1px 3px		
 	font-size 1.25em
 	margin 3px
@@ -309,7 +311,7 @@ li
 	  color #F0FFFF!important
 	  font-size 1.5em!important
 	  font-weight normal!important
-	  font-family "Fredoka One","Josefin Slab", sans-serif!important
+	  font-family "Fredoka One","Open Sans", sans-serif!important
 	  border-radius 50%
 
 .gm-style-iw
@@ -418,6 +420,7 @@ input[name="website"], input[name="bizName"]
 	background-repeat no-repeat
 	background-position center center
 	background-size contain
+	border-radius 3px
 
 
 #mapBG
@@ -669,8 +672,9 @@ div.loaderScreen
  	position fixed
  	top 0
  	right 0
- 	font-size 4em
+ 	font-size 3em
 		color #f00000
+		text-decoration none
 	.login-button.login-button-form-submit
 		margin-top 2em
 		
@@ -703,3 +707,21 @@ div.loaderScreen
 	+below(2)
 		padding-left 0
 		padding-right 0
+		
+
+
+
+
+#login-buttons .login-button, .accounts-dialog .login-button
+	transition()
+	background rgb(132, 9, 132)
+	background rgba(132, 9, 132, 0.98)
+	border 2px outset #a000a0
+	border-radius 1.5em
+	&:hover, &:focus
+		background rgb(218,23,48)
+		background rgba(218,23,48,.9)
+		border 2px inset #800080
+.additional-link
+ font-size 1.3em!important
+ font-family 'Open Sans', sans-serif

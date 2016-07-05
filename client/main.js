@@ -296,7 +296,24 @@ Template.layout.events({
 
 
 
+Template.updateListing.onRendered(function(){
+ setTimeout(function(){
+   $(window).trigger('resize');
+ }, 555);
+ setTimeout(function(){
+   $(window).trigger('resize');
+ }, 1111);
+});
 
+
+Template.createListing.onRendered(function(){
+ setTimeout(function(){
+   $(window).trigger('resize');
+ }, 555);
+ setTimeout(function(){
+   $(window).trigger('resize');
+ }, 1111);
+});
 
 
 

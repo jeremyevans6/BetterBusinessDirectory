@@ -10,7 +10,7 @@ Meteor.startup(function() {
 
  reCAPTCHA.config({
      publickey: '6LeLvyITAAAAAMM578S1JsBUM_aXsTJRBUJBDVrf',
-     hl: 'en' // optional display language
+     hl: 'en' 
  });
 
 });
@@ -29,7 +29,7 @@ smoothZoom = function (map, max, cnt) {
             google.maps.event.removeListener(z);
             smoothZoom(map, max, cnt + 1);
         });
-        setTimeout(function(){map.setZoom(cnt)}, 555); 
+        setTimeout(function(){map.setZoom(cnt)}, 333); 
     }
 }  
 
@@ -94,8 +94,6 @@ Template.updateListing.onCreated(function () {
   });
 
 });
-
-
 
 
 
@@ -165,15 +163,15 @@ Template.createListing.events({
   event.target.socialMission.value = "";
   $(event.target).find('[data-schema-key="logo"]').parent().find('.js-af-remove-file').click();
      
+    window.location.href = '../profile/'+bizNameUrl;
 
         event.preventDefault();
         event.stopPropagation();
    return false;
 
-    window.location.href = '../'+bizNameUrl;
 
    setTimeout(function(bizNameUrl){
-    window.location.href = '../'+bizNameUrl;
+    window.location.href = '../profile/'+bizNameUrl;
    }, 777);
 
 	}

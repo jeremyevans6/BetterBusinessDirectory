@@ -3,8 +3,11 @@ import {FS} from 'meteor/cfs:standard-packages';
 import {GridFS} from 'meteor/cfs:gridfs';
 
 
+
+
+
+
 Meteor.startup(function(){
-  // code to run on server at startup
 
   Meteor.publish("listings", function(){
    //Meteor._sleepForMs(5000);
@@ -55,4 +58,51 @@ Listings.allow({
     update: function (userId, doc) {
         return true;
     }
+});
+
+Meteor.methods({
+
+ insert: function (bizName, bizNameUrl, firstName, lastName, ownerPicture, facebookPersonal, twitterPersonal, linkedInPersonal, instagramPersonal, pinterestPersonal, facebookBusiness, twitterBusiness, linkedInBusiness, instagramBusiness, pinterestBusiness, email, phone, industry, location, website, logo, socialMission, userId, createdAt, captchaData){
+
+   var self = this;
+
+   var clientIP = headers.methodClientIP(self);
+
+   var verifyCaptchaResponse = reCAPTCHA.verifyCaptcha(clientIP, captchaData);
+
+
+   if (!verifyCaptchaResponse.success) {
+       console.log('reCAPTCHA check failed!', verifyCaptchaResponse);
+       throw new Meteor.Error(422, 'reCAPTCHA Failed: ' + verifyCaptchaResponse.error);
+   }
+
+  Listings.insert({
+   bizName: bizName,
+   bizNameUrl: bizNameUrl,
+   firstName: firstName,
+   lastName: lastName,
+   ownerPicture: ownerPicture,
+   facebookPersonal: facebookPersonal,
+   twitterPersonal: twitterPersonal,
+   linkedInPersonal: linkedInPersonal,
+   instagramPersonal: instagramPersonal,
+   pinterestPersonal: pinterestPersonal,
+   facebookBusiness: facebookBusiness,
+   twitterBusiness: twitterBusiness,
+   linkedInBusiness: linkedInBusiness,
+   instagramBusiness: instagramBusiness,
+   pinterestBusiness: pinterestBusiness,
+   email: email,
+   phone: phone,
+   website: website,
+   industry: industry,
+   location: location,
+   logo: logo,
+   socialMission: socialMission,
+   userId: userId,
+   createdAt: new Date()
+  });
+
+ }
+
 });

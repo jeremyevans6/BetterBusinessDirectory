@@ -66,6 +66,7 @@ facebook@1.2.8
 fastclick@1.0.12
 fortawesome:fontawesome@4.5.0
 froala:editor@2.0.5
+gadicohen:headers@0.0.31
 geojson-utils@1.0.9
 google@1.1.13
 handlebars@1.0.7
@@ -96,6 +97,7 @@ mdg:validation-error@0.2.0
 meteor@1.1.15_1
 meteor-base@1.0.4
 meteorhacks:async@1.0.0
+meteorhacks:inject-initial@1.0.4
 meteorhacks:npm@1.5.0
 meteortoys:toykit@3.0.4
 minifier-css@1.1.12_1
@@ -133,7 +135,6 @@ reactive-var@1.0.10
 reload@1.1.10
 retry@1.0.8
 routepolicy@1.0.11
-semencovroman34:accounts-pinterest@1.0.0
 service-configuration@1.0.10
 session@1.1.6
 sha@1.0.8

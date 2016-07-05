@@ -44,8 +44,9 @@ accounts-facebook
 accounts-twitter
 pauli:accounts-linkedin
 bozhao:accounts-instagram
-semencovroman34:accounts-pinterest
 accounts-google
 altapp:recaptcha
 yogiben:autoform-file
 email
+gadicohen:headers
+ejson

@@ -3,6 +3,7 @@ import { ReactiveVar } from 'meteor/reactive-var';
 import { ReactiveDict } from 'meteor/reactive-dict';
 
 modalActive = false;
+bizName = '';
 
 
 Meteor.startup(function() {
@@ -85,11 +86,17 @@ Template.updateListing.onCreated(function () {
      this.subscribe('listings');
   this.autorun(function() {
     if (Template.instance().subscriptionsReady()) {
-      var thisListing = Listings.findOne();
+      var thisId = document.getElementsByClassName('_id')[0].innerHTML;
+      var thisListing = Listings.findOne({_id: thisId});
       var socialMissionHtml = thisListing.socialMission;
       var industry = thisListing.industry;
       $('[name="socialMission"]').froalaEditor('html.set', socialMissionHtml);
       $('[name="industry"]').val(industry);
+      
+      $(window).trigger('resize');
+      setTimeout(function(){
+       $(window).trigger('resize');
+      }, 2222)
     }
   });
 
@@ -136,7 +143,18 @@ Template.createListing.events({
      if (error) {
          console.log('There was an error: ' + error.reason);
      } else {
-         console.log('Success!');
+       console.log('Success!');
+       Router.go('profile', { bizNameUrl: bizNameUrl });
+     }
+
+     if(r != false){
+       sitemaps.add('/sitemap.xml',function(){
+         return {
+             page: '/profile/' + bizNameUrl,
+             lastmod: new Date(),
+             changefreq: 'monthly'
+         }
+       });
      }
   });
 
@@ -205,6 +223,8 @@ Template.updateListing.onRendered(function () {
 Template.updateListing.events({
  'submit': function(event){
 
+        event.preventDefault();
+
   var thisId = document.getElementsByClassName('_id')[0].innerHTML;
   var thisListing = Listings.findOne({_id: thisId});
   var bizName = event.target.bizName.value;
@@ -248,11 +268,23 @@ Template.updateListing.events({
   var _id = thisListing._id;
 
 
-  Meteor.call("update", _id, bizName, bizNameUrl, firstName, lastName, ownerPicture,facebookPersonal, twitterPersonal, linkedInPersonal, instagramPersonal, pinterestPersonal, facebookBusiness, twitterBusiness, linkedInBusiness, instagramBusiness, pinterestBusiness, email, phone, industry, location, website, logo, socialMission, userId);
+  Meteor.call("update", _id, bizName, bizNameUrl, firstName, lastName, ownerPicture,facebookPersonal, twitterPersonal, linkedInPersonal, instagramPersonal, pinterestPersonal, facebookBusiness, twitterBusiness, linkedInBusiness, instagramBusiness, pinterestBusiness, email, phone, industry, location, website, logo, socialMission, userId, function(e,r){
+    if (e) {
+        throw new Meteor.Error();
+    }
+    if(r != false){
+        sitemaps.add('/sitemap.xml',function(){
+            return {
+                page: '/profile/' + bizNameUrl,
+                lastmod: new Date(),
+                changefreq: 'monthly'
+            }
+        });
+      }
+  });
 
-  window.location.href = '../'+bizNameUrl;
+  Router.go('profile', { bizNameUrl: bizNameUrl });
   
-        event.preventDefault();
         event.stopPropagation();
     return false;
 

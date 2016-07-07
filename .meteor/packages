@@ -50,3 +50,6 @@ yogiben:autoform-file
 email
 gadicohen:headers
 ejson
+jazeee:spiderable-longer-timeout
+dfischer:phantomjs
+gadicohen:sitemaps

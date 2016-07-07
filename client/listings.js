@@ -22,7 +22,9 @@ Template.listing.helpers({
 	},
 
  websitePretty: function(website){
-  var websitePretty = website.replace('http://','').replace('https://','').replace(/\/.*/g,'');
+ 	if(website !== undefined){
+  		var websitePretty = website.replace('http://','').replace('https://','').replace(/\/.*/g,'');
+  }
   return websitePretty;
  }
 

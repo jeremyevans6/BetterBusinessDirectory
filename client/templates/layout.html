@@ -1,13 +1,5 @@
 <template name="layout">
 
-<head>
-  <title>BBD -- Shopping Better!</title>
-
-  <link href='https://fonts.googleapis.com/css?family=Fredoka+One|Open+Sans:300,400,600,700,800' rel='stylesheet' type='text/css'>
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico"/>
- 
-
-</head>
 <body>
 	{{> nav}}
 	{{> yield}}
@@ -35,6 +27,7 @@
 	<div id="footer">
 		<span><a target="_self" href="{{pathFor 'new'}}">Own a business?</a></span>
 		<span><a target="_self" href="{{pathFor 'privacy'}}">Privacy Policy</a></span>
-	</div>
-	
+	</div>	
 </template>
+
+

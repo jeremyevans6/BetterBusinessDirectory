@@ -1,7 +1,8 @@
 Router.configure({
 	layoutTemplate:'layout',
 	notFoundTemplate: 'loader',
-	loadingTemplate: 'loader'
+	loadingTemplate: 'loader',
+	trackPageView: true
 });
 
 var SEO_options = {
@@ -129,7 +130,7 @@ Router.route('/profile/:bizNameUrl', {
     description: function() {
     	var socialM = this.data().socialMission;
     	var smParsed = socialM.replace(/<.*?>/gi, "");
-			var maxLength = 120;
+			var maxLength = 400;
 			var trimmedString = smParsed.substr(0, maxLength);
 			var description = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" ")));
     	console.log('Description: '+description);
@@ -147,7 +148,11 @@ Router.route('/profile/:bizNameUrl', {
       }
     },
     og: {
-      type: 'business.business'
+      type: 'business.business',
+   	  image: function() {
+        	var img = "https://wedobusinessbetter.com"+this.data().logo;
+      		return img;
+    	}
     }
   }
 });
@@ -189,7 +194,7 @@ Router.route('/profile/edit/:bizNameUrl', {
     description: function() {
     	var socialM = this.data().socialMission;
     	var smParsed = socialM.replace(/<.*?>/gi, "");
-			var maxLength = 120;
+			var maxLength = 400;
 			var trimmedString = smParsed.substr(0, maxLength);
 			var description = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" ")));
     	console.log('Description: '+description);
@@ -207,7 +212,11 @@ Router.route('/profile/edit/:bizNameUrl', {
       }
     },
     og: {
-      type: 'business.business'
+      type: 'business.business',
+   	  image: function() {
+        	var img = "https://wedobusinessbetter.com"+this.data().logo;
+      		return img;
+    	}
     }
   }
 });

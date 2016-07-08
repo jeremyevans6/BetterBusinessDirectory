@@ -1,0 +1,19 @@
+{
+    "public": {
+        "ga": {
+            "id": "UA-80450147-1",
+            "create": {
+                "cookieDomain": "wedobusinessbetter.com",
+                "betterbusiness": "my_ga_cookie",
+                "cookieExpires": 3600
+            },
+            "set": {
+                "forceSSL": true,
+                "anonymizeIp": false
+            },
+            "require": {
+                "displayfeatures": true            },
+            "trackUserId": true
+        }
+    }
+}

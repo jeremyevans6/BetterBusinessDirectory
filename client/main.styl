@@ -106,9 +106,9 @@ ul li
 	flex-direction 
 	background rgb(10,0,10)	
 	background rgba(10,0,10,0.8)
-	max-height 4%
+	max-height 5%
 	span
-		font-size 1em
+		font-size .66em
 		line-height normal
 		margin 0.1em
 		padding-left .75em
@@ -165,7 +165,7 @@ li
 .listing
  font-family "Open Sans", sans-serif
 	box-shadow #F0F8FF 1px 1px 3px, #F0F8FF -1px -1px 3px, #F0F8FF 1px -1px 3px, #F0F8FF -1px 1px 3px		
-	font-size 1.25em
+	font-size .75em
 	margin 3px
 	background rgb(58, 4, 54)
 	background rgba(58, 4, 54, 0.95)
@@ -201,11 +201,9 @@ li
 		 width 99%
 			td,th
 				width 49.5%
- .bizName
- 	font-size 2em
  .socialMission
  	max-height 3em
- 	font-size .85em
+ 	font-size .65em
  	margin 0px
   div
  	 display inline-block
@@ -225,6 +223,7 @@ li
   .gm-style-cc
   	display none
  .website
+ 	font-size .88em
  	text-align center
  .logo
  	width 3.5em
@@ -236,7 +235,9 @@ li
 	.bizName
 		font-family "Fredoka One", sans-serif
 		color #00049A
-
+ 	font-size 1.5em
+	.phone, .email
+		font-size .77em
 
 
 .focus
@@ -468,50 +469,54 @@ input[name="website"], input[name="bizName"]
 		text-shadow #111 0 0 0, #111 1px 0 0, #111 0 1px 0, #111 1px 1px 0, #111 -1px 0 0, #111 0 -1px 0, #111 -1px 1px 0
 	.map-canvas
 		height 10em!important
-		
-.social-icon
-	border none
-	&:hover
+
+.social-container		
+	.social-icon
 		border none
-	img
-		max-width 300px
-		background #E9F4E9
-	 background rgba(233, 244, 233, 0.68)
-	 border-radius 50%
-	 height 3em
-	 &:hover
-	 	border none
-	 	animation rainbow-bg-cycle 5s infinite
+		&:hover
+			border none
+		img
+			transition()
+			max-width 300px
+			background #E9F4E9
+		 background rgba(233, 244, 233, 0.68)
+		 border-radius 50%
+		 height 3em
+		 &:hover
+		 	border none
+			 background rgb(243, 240, 245)
+			 background rgba(243, 240, 245, 0.88)
+		 	animation swell 1s infinite
+	.social-icon:nth-of-type(1) img:hover
+	 background rgb(230,45,17)
+		background rgba(230,45,17,.88)
+	.social-icon:nth-of-type(2) img:hover
+	 background rgb(245, 124, 21)
+	 background rgba(245, 124, 21, 0.88)
+	.social-icon:nth-of-type(3) img:hover
+	 background rgb(245, 249, 23)
+	 background rgba(245, 249, 23, 0.88)
+	.social-icon:nth-of-type(4) img:hover
+	 background rgb(45, 245, 21)
+	 background rgba(45, 245, 21, 0.88)
+	.social-icon:nth-of-type(5) img:hover
+	 background rgb(31,58,253)
+	 background rgba(31,58,253,0.88)
+	.social-icon:nth-of-type(6) img:hover
+	 background rgb(219, 31, 253)
+	 background rgba(219, 31, 253, 0.88)
+	.social-icon:nth-of-type(7) img:hover
+	 background rgb(243, 240, 245)
+	 background rgba(243, 240, 245, 0.88)
+
  	
- 	
-@keyframes rainbow-bg-cycle
-  0%
-				background rgb(233, 244, 233)
-			 background rgba(233, 244, 233, 0.68)
-  14%
-				background rgb(11, 110, 172)
-			 background rgba(11, 110, 172, 0.88)
-  28%
-				background rgb(21, 172, 18)
-			 background rgba(21, 172, 18, 0.88)
-  42%
-				background rgb(198, 22, 22)
-			 background rgba(198, 22, 22, 0.88)
-  56%
-				background rgb(121, 14, 14)
-			 background rgba(121, 14, 14, 0.88)
-  70%
-				background rgb(252, 85, 16)
-			 background rgba(252, 85, 16, 0.88)
-  84%
-				background rgb(250, 247, 53)
-			 background rgba(250, 247, 53, 0.88)
-  98%
-				background rgb(226, 14, 120)
-			 background rgba(226, 14, 120, 0.88)
-  100% 
-				background rgb(226, 14, 120)
-			 background rgba(226, 14, 120, 0.88)
+@keyframes swell
+ 0%
+		transform scale(1)
+ 50%
+		transform scale(1.2)
+ 100% 
+		transform scale(1)
   
 
 .oldPreview

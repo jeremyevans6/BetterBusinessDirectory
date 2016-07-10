@@ -44,7 +44,7 @@ Template.mapPage.onCreated(function () {
     contentString += "    <td colspan=\"14\"><h2>"+listing.firstName+" "+listing.lastName+"<\/h2><\/td>";
     contentString += "  <\/tr>";
     contentString += "  <tr>";
-    contentString += "    <td colspan=\"20\" class=\"socialMission\"><div>"+listing.socialMission+" <a href=\"\/profile\/"+listing.bizName+"\" class=\"readmore\">&#xbb;<\/a><\/div><\/td>";
+    contentString += "    <td colspan=\"20\" class=\"socialMission\"><div>"+listing.socialMission+" <a href=\"\/profile\/"+listing.bizNameUrl+"\" class=\"readmore\">&#xbb;<\/a><\/div><\/td>";
     contentString += "  <\/tr>";
     contentString += "<\/table>";
 

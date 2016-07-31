@@ -9,10 +9,17 @@ import {GridFS} from 'meteor/cfs:gridfs';
 
 Meteor.startup(function(){
 
+
+
   Meteor.publish("listings", function(){
    //Meteor._sleepForMs(5000);
-   return Listings.find();
+   return Listings.find({}, {
+    sort: {createdAt: -1}
+   });
   });
+
+
+  Listings._ensureIndex({ "_id": 1});
 
   Meteor.publish('images', function () { 
     Meteor.Images.find({});

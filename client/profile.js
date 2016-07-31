@@ -33,7 +33,8 @@ Template.profile.onCreated(function() {
 
 
  GoogleMaps.ready('profileMap', function(map) {
-  var thisListing = Listings.findOne();
+  var thisId = document.getElementsByClassName('_id')[0].innerHTML;
+  var thisListing = Listings.findOne({_id: thisId});
   var locLat = thisListing.location[0];
   var locLng = thisListing.location[1];
   var mapName = thisListing._id+"_Map";

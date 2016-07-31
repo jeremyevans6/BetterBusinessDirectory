@@ -36,7 +36,6 @@ Template.listing.helpers({
 
 Template.allListings.onCreated(function () {
 	    this.subscribe('listings');
-
 });
 Template.listing.onCreated(function () {
     this.subscribe('listings');

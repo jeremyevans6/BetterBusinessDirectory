@@ -186,7 +186,7 @@ Template.mapPage.onCreated(function () {
 
   });
 
-  mcOptions = {averageCenter: true, imagePath: "http://betterbetterbetter.org/wp-content/uploads/2016/06/pinkCircle"};
+  mcOptions = {averageCenter: true, imagePath: "https://blog.betterbetterbetter.org/wp-content/uploads/2016/06/pinkCircle"};
    mc = new MarkerClusterer(map.instance, markers, mcOptions);
 
 
